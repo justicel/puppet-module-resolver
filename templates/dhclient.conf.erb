@@ -1,0 +1,19 @@
+option rfc3442-classless-static-routes code 121 = array of unsigned integer 8;
+
+send host-name "<hostname>";
+request subnet-mask, broadcast-address, time-offset, routers,
+        domain-name, domain-name-servers, domain-search, host-name,
+        netbios-name-servers, netbios-scope, interface-mtu,
+        rfc3442-classless-static-routes, ntp-servers;
+
+<% if not domainname.nil? and not domainname == :undef -%>
+supersede domain-name "<%= domainname %>";
+<% end -%>
+
+<% if not searchpath.nil? and not searchpath == :undef -%>
+prepend domain-search "<%= [searchpath].flatten.join('", "') %>";
+<% end -%>
+
+<% if not nameservers.nil? and not nameservers == :undef -%>
+prepend domain-name-servers <%= [nameservers].flatten.join(', ') %>;
+<% end -%>

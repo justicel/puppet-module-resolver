@@ -1,0 +1,14 @@
+# This file is managed by puppet. 
+#
+# for future reference when ndots and sortlist can be done in dhclient.conf
+# we can toss this file.
+#
+domain <%= domainname %>
+<% if not searchpath == :undef and not searchpath.empty? %>search <%= [searchpath].flatten.join(" ") %>
+<% end -%>
+<% if not options == :undef and not options.empty? %>options <%= [options].flatten.join(" ") %>
+<% end -%>
+<% if not sortlist == :undef and not sortlist.empty? %>sortlist <%= [sortlist].flatten.join(" ") %>
+<% end -%>
+<% [nameservers].flatten.each do |ns| %>nameserver <%= ns %>
+<% end -%>
