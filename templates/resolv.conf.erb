@@ -3,7 +3,7 @@
 # for future reference when ndots and sortlist can be done in dhclient.conf
 # we can toss this file.
 #
-domain <%= domainname %>
+domain <%= @domainname %>
 <% if @searchpath %>search <%= [@searchpath].flatten.join(" ") %>
 <% end -%>
 <% if @options %>options <%= [@options].flatten.join(" ") %>
