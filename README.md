@@ -1,0 +1,4 @@
+Resolver mdoule for Puppet
+==========================
+
+
