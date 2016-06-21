@@ -15,7 +15,7 @@ supersede domain-name "<%= @domainname %>";
 <% end -%>
 
 <% if @searchpath -%>
-prepend domain-search "<%= [@searchpath].flatten.join('", "') %>";
+supersede domain-search "<%= [@searchpath].flatten.join('", "') %>";
 <% end -%>
 
 <% if @nameservers -%>
